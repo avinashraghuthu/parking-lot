@@ -27,7 +27,7 @@ class TicketManager(object):
 		for i in xrange(1, lot_size+1):
 			parking_lot = ParkingLot(i, None, False)
 			self.parking_lots.append(parking_lot)
-		print STR_PARKING_CREATION_SUCCESS % str(lot_size)
+		return STR_PARKING_CREATION_SUCCESS % str(lot_size)
 
 	def get_vehicle_for_parking(self, vehicle_no, vehicle_color):
 		vehicle = Vehicle(vehicle_no, vehicle_color, True)
@@ -45,9 +45,9 @@ class TicketManager(object):
 		if parking_lot:
 			parking_lot.is_occupied = True
 			parking_lot.vehicle = self.get_vehicle_for_parking(vehicle_no, vehicle_color)
-			print STR_VEHICLE_PARKING_SUCCESS % parking_lot.lot_number
+			return STR_VEHICLE_PARKING_SUCCESS % parking_lot.lot_number
 		else:
-			print STR_PARKING_LOT_FULL
+			return STR_PARKING_LOT_FULL
 
 	def leave_parking_lot(self, lot_number):
 		if lot_number <= len(self.parking_lots):
@@ -55,9 +55,9 @@ class TicketManager(object):
 			parking_lot.vehicle.is_parked = False
 			parking_lot.is_occupied = False
 			parking_lot.vehicle = None
-			print STR_LEAVE_PARKING_SUCCESS % parking_lot.lot_number
+			return STR_LEAVE_PARKING_SUCCESS % parking_lot.lot_number
 		else:
-			print STR_WRONG_LOT_NO
+			return STR_WRONG_LOT_NO
 
 	def get_current_parking_status(self):
 		if self.parking_lots:
@@ -68,7 +68,7 @@ class TicketManager(object):
 					print str(parking_lot.lot_number) + '      ' + vehicle.vehicle_no+\
 							'      ' + vehicle.vehicle_color
 		else:
-			print STR_PARKING_LOT_EMPTY
+			return STR_PARKING_LOT_EMPTY
 
 	def get_vehicle_no_with_color(self, color):
 		registration_numbers = []
@@ -77,9 +77,9 @@ class TicketManager(object):
 			if parking_lot.is_occupied and vehicle.vehicle_color == color:
 				registration_numbers.append(vehicle.vehicle_no)
 		if registration_numbers:
-			print ", ".join(registration_numbers)
+			return ", ".join(registration_numbers)
 		else:
-			print STR_NO_VEHICLES_FOUND
+			return STR_NO_VEHICLES_FOUND
 
 	def get_car_slot_no_with_color(self, color):
 		slot_numbers = []
@@ -88,9 +88,9 @@ class TicketManager(object):
 			if parking_lot.is_occupied and vehicle.vehicle_color == color:
 				slot_numbers.append(parking_lot.lot_number)
 		if slot_numbers:
-			print ", ".join(slot_numbers)
+			return ", ".join(slot_numbers)
 		else:
-			print STR_NO_VEHICLES_FOUND
+			return STR_NO_VEHICLES_FOUND
 
 	def get_car_slot_no_with_vehicle_no(self, vehicle_no):
 		slot_numbers = []
@@ -99,7 +99,7 @@ class TicketManager(object):
 			if parking_lot.is_occupied and vehicle.vehicle_no == vehicle_no:
 				slot_numbers.append(parking_lot.lot_number)
 		if slot_numbers:
-			print ", ".join(slot_numbers)
+			return ", ".join(slot_numbers)
 		else:
-			print STR_NO_VEHICLES_FOUND
+			return STR_NO_VEHICLES_FOUND
 

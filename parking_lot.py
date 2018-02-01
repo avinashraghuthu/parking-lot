@@ -11,15 +11,11 @@ def run_parking_lot():
 		elif len(cmd_arguments) == 1:
 			print "Please enter your commands:\n"
 			while True:
-				print 'Input:',
-				print '\n'
+				print 'Input:\n'
 				input_cmd = (raw_input()).strip()
 				print '\n'
-				print '\n'
-				print 'Output:',
-				print '\n'
+				print 'Output:\n'
 				parse_n_execute_command(ticket_mgr_obj, input_cmd)
-				print '\n'
 				print '\n'
 		else:
 			print STR_INVALID_ARG
