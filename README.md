@@ -28,12 +28,20 @@ Running Procedure:
     Execute the following command for running the parking lot:
 
     1) For file input
-            python parking_lot.py [file_path]
-            Ex: python parking_lot.py parking_test.txt
+            Python:
+                python parking_lot.py [file_path]
+                Ex: python parking_lot.py parking_test.txt
+            Unix Shell:
+                ./parking_lot.sh [file_path]
+                Ex: parking_lot.sh parking_test.txt
 
     2) For command line input
-            python parking_lot.py
-            Ex: python parking_lot.py
+            Python:
+                python parking_lot.py
+                Ex: python parking_lot.py
+            Unix Shell:
+                ./parking_lot.sh
+                Ex: ./parking_lot.sh
 
 
 Running Tests
